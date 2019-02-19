@@ -50,7 +50,7 @@ data为GeoJson的数据，name为需要展示不同类型的图层类型，目�
 
 # visual_GeoJSON - English
 
-The js document is used for the display of raster data and vector data. It depends on leaflet and Jquery. Internally encapsulates the Schedular scheduler object, functions such as color, layer, and db to display the data. Some functions do not expose the user interface. Users can also implement schedular objects themselves based on the exposed methods.
+The js library is used for the display of raster data and vector data. It depends on leaflet and Jquery. Internally encapsulates the Schedular scheduler object, functions such as color, layer, and db to display the data. Some functions do not expose the user interface. Users can also implement schedular objects themselves based on the exposed methods.
 ## Data format requirements
 1. The data required to use the js library is GeoJson format data.
 2. Dynamic display using the js library requires the initialization layer to use GeoJSon data, the subsequent data format is
