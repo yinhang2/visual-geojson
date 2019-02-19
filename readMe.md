@@ -17,7 +17,7 @@
 ## Map
 在该js库中封装了依赖leaflet扩展以适应中国国内的天地图和高德地图，提供了init方法
 ### function init
-####param: lat,lng
+#### param: lat,lng
 参数为经纬度，用于向外提供高德地图的底图，缩放级别为8，考虑到用户会使用不同地图API构造地图，因此不同底图并不会影响js库的使用
 
 ##Layer
@@ -67,10 +67,10 @@ time rowkey，Columnar storage
 ## Map
 In the js library, the dependency leaflet extension is encapsulated to adapt to the Chinese domestic sky map and the high German map, and the init method is provided.
 ### function init
-####param: lat,lng
+#### param: lat,lng
 The parameter is latitude and longitude, which is used to provide a base map of the high-definition map. The zoom level is 8. Considering that the user will construct the map using different map APIs, different base maps will not affect the use of the js library.
 
-##Layer
+## Layer
 Constructs a vector layer and raster data.
 ### titleLayer
 #### param： name, data
