@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>demo</title>
+
+    <link rel="stylesheet" href="stylesheets/bootstrap.css"/>
+    <link rel="stylesheet" href="stylesheets/leaflet.css"/>
+    <link rel="stylesheet" href="stylesheets/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="stylesheets/base.css"/>
+</head>
+<body>
+
+    <div class="map-wrapper">
+        <div class="container-models" id="map" style="width: 100%; height: 100%"></div>
+    </div>
+
+<div class="time-control">
+    <div id="time-control-name"></div>
+    <div id="time-control-slider">
+        <div id="slider"></div>
+    </div>
+    <div id="time-control-panel"></div>
+</div>
+    <script type="text/javascript" src="javascripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="javascripts/leaflet.js"></script>
+    <script type="text/javascript" src="javascripts/visual_geojson.min.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="data/geojson_1.js"></script>
+    <script type="text/javascript" src="data/geojson_2.js"></script>
+    <script type="text/javascript" src="data/geojson_3.js"></script>
+    <script type="text/javascript" src="data/geojson_4.js"></script>
+<script>
+    $(function() {
+        var visualObject = window.visualGeoJson()
+        var map = visualObject.map(39.108996,99.833743);
+        var layer = visualObject.layer.gridLayer(geojson_1, "#e8ff1a", "#2a8eff")
+        /*visualObject.db.init(database,'/data',1,4,"#36ff80","#FF0F95",map,layer)*/
+        layer.addTo(map)
+        visualObject.db.init('demo', 1.0, function(db) {
+            var mySchedular = new visualObject.Schedular(db, '', 1, 4, "#e8ff1a", "#2a8eff", map, layer)
+            mySchedular.saveByOffline([geojson_2.features, geojson_3.features, geojson_1.features], 1)
+            mySchedular.start(geojson_1, layer, 1, 4)
+        })
+    })
+</script>
+</body>
+</html>
