@@ -1,6 +1,6 @@
 # visual_GeoJSON
 
-该js用于展示对栅格数据和矢量数据的展示，依赖于leaflet和Jquery，内部封装了Schedular调度器对象，color，layer和db等函数用于对数据展示，其中部分函数并未暴露出用户接口。用户也可以根据暴露出的方法自行实现schedular对象。
+该js库用于对栅格数据和矢量数据进行展示，依赖于leaflet和Jquery，内部封装了Schedular调度器对象，color，layer和db等函数对数据进行展示，其中部分函数并未提供用户接口。用户也可以根据提供的方法自行实现schedular对象。
 ## 数据格式要求
 1. 使用该js库的数据要求为GeoJson格式数据
 2. 使用该js库的动态展示要求初始化图层使用GeoJSon数据，后续数据格式为
@@ -34,7 +34,7 @@ data为GeoJson的数据，name为需要展示不同类型的图层类型，目�
 ### function Schedular
 #### param:database,url,startTime,endTime,startRGB,endRGB, map, layer
 
-该函数是调度器的构造函数，接受八个参数，database为前端IndexDB的存储名称，url为后台数据接口，startTime和endTime为期待动态展示时的开始数据key和结束数据key（在库中以time表示独一无二的key），设定颜色边界（startColor和 endColor），map可以是用户使用其他WebGis公有js库创建的底图图层，也可以使用该js库中自行封装的map方法构造。layer为需要动态展示的图层。
+该函数是调度器的构造函数，接受八个参数，database为前端IndexDB的存储名称，url为后台数据接口，startTime和endTime为期待动态展示时的开始数据key和结束数据key（在库中以time表示唯一key），设定颜色边界（startColor和 endColor），map可以是用户使用其他WebGis公有js库创建的底图图层，也可以使用该js库中自行封装的map方法构造。layer为需要动态展示的图层。
 ### function saveByServer
 #### param time number
 用于通过后台保存数据，time为需要取的第一个数据的key，number为一次读取数据的数目，数据会保存在indexDB中和内部维护的数据中
@@ -50,10 +50,10 @@ data为GeoJson的数据，name为需要展示不同类型的图层类型，目�
 
 # visual_GeoJSON - English
 
-The js document is used for the display of raster data and vector data. It depends on leaflet and Jquery. Internally encapsulates the Schedular scheduler object, functions such as color, layer, and db to display the data. Some functions do not expose the user interface. Users can also implement schedular objects themselves based on the exposed methods.
+The js library is used for the display of raster data and vector data. It depends on leaflet and Jquery. The js library internally encapsulates the Schedular scheduler object, functions such as color, layer, and db to display the data. Some functions do not provide the user interface. Users can also implement schedular objects themselves based on the provided methods.
 ## Data format requirements
-1. The data required to use the js library is GeoJson format data.
-2. Dynamic display using the js library requires the initialization layer to use GeoJSon data, the subsequent data format is
+1. The data used in this js library is GeoJson format data.
+2. Dynamic display using the js library requires the initialization layer using GeoJSon data, the subsequent data format is
 
     `{
 		time: 121312,
@@ -62,7 +62,7 @@ The js document is used for the display of raster data and vector data. It depen
 		]
 	}`
 time rowkey，Columnar storage
-4. If you call Schedule's saveByServer to read data from the background, there is no requirement for the background, you can request the data format to store the array in the above column.
+4. you can call Schedule's saveByServer to read data from whatever background you prefer, you can request the data format to store the array in the above column.
 
 ## Map
 In the js library, the dependency leaflet extension is encapsulated to adapt to the Chinese domestic sky map and the high German map, and the init method is provided.
@@ -74,11 +74,11 @@ The parameter is latitude and longitude, which is used to provide a base map of 
 Constructs a vector layer and raster data.
 ### titleLayer
 #### param： name, data
-Data is the data of GeoJson. Name is the type of layer that needs to display different types. Currently, the layer with a little line surface is encapsulated. The names are point, line and surface, and the return value is layer.
+Data is the format of GeoJson. Name is the type of layer that needs to display different types. Currently, the layer with a little line surface is encapsulated. The names are point, line and surface, and the return value is layer.
 
 ### gridLayer
 #### param： geojson ，startRGB， endRGB
-Used to construct a raster data layer based on the data in geojson. rgb represents the color of the minimum value and the maximum value respectively. The return value is layer.
+Used to construct a raster data layer based on the data in GeoJson. rgb represents the color of the minimum value and the maximum value respectively. The return value is layer.
 
 ## schedular
 ### function Schedular
