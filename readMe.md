@@ -20,7 +20,7 @@
 #### param: lat,lng
 参数为经纬度，用于向外提供高德地图的底图，缩放级别为8，考虑到用户会使用不同地图API构造地图，因此不同底图并不会影响js库的使用
 
-##Layer
+## Layer
 封装了矢量图层和栅格数据的构造。
 ### titleLayer
 #### param： name, data
