@@ -34,7 +34,7 @@ data为GeoJson的数据，name为需要展示不同类型的图层类型，目�
 ### function Schedular
 #### param:database,url,startTime,endTime,startRGB,endRGB, map, layer
 
-该函数是调度器的构造函数，接受八个参数，database为前端IndexDB的存储名称，url为后台数据接口，startTime和endTime为期待动态展示时的开始数据key和结束数据key（在库中以time表示唯一key），设定颜色边界（startColor和 endColor），map可以是用户使用其他WebGis公有js库创建的底图图层，也可以使用该js库中自行封装的map方法构造。layer为需要动态展示的图层。
+该函数是调度器的构造函数，接受八个参数：**database**为前端IndexDB的存储名称；**url**为后台数据接口；**startTime**和**endTime**为期待动态展示时的开始数据key和结束数据key（在库中以time表示唯一key）；设定颜色边界（**startColor**和 **endColor**）；**map**可以是用户使用其他WebGis公有js库创建的底图图层，也可以使用该js库中自行封装的map方法构造；**layer**为需要动态展示的图层。
 ### function saveByServer
 #### param time number
 用于通过后台保存数据，time为需要取的第一个数据的key，number为一次读取数据的数目，数据会保存在indexDB中和内部维护的数据中
@@ -53,7 +53,7 @@ data为GeoJson的数据，name为需要展示不同类型的图层类型，目�
 The js library is used for the display of raster data and vector data. It depends on leaflet and Jquery. The js library internally encapsulates the Schedular scheduler object, functions such as color, layer, and db to display the data. Some functions do not provide the user interface. Users can also implement schedular objects themselves based on the provided methods.
 ## Data format requirements
 1. The data used in this js library is GeoJson format data.
-2. Dynamic display using the js library requires the initialization layer using GeoJSon data, the subsequent data format is
+2. Using this js library to achieve dynamic display requires the initialization layer based GeoJSon data, the subsequent data format is
 
     `{
 		time: 121312,
@@ -74,7 +74,7 @@ The parameter is latitude and longitude, which is used to provide a base map of 
 Constructs a vector layer and raster data.
 ### titleLayer
 #### param： name, data
-Data is the format of GeoJson. Name is the type of layer that needs to display different types. Currently, the layer with a little line surface is encapsulated. The names are point, line and surface, and the return value is layer.
+Data format is the format of GeoJson. Name is the type of layer that needs to display different types. Currently, the layer with a little line surface is encapsulated. The names are point, line and surface, and the return value is layer.
 
 ### gridLayer
 #### param： geojson ，startRGB， endRGB
@@ -84,7 +84,7 @@ Used to construct a raster data layer based on the data in GeoJson. rgb represen
 ### function Schedular
 #### param:database,url,startTime,endTime,startRGB,endRGB, map, layer
 
-This function is the constructor of the scheduler, accepts eight parameters, database is the storage name of the front-end IndexDB, url is the background data interface, startTime and endTime are the start data key and the end data key when expecting dynamic display.（Representing a unique key in time in the library），Set color borders（startColor and endColor），The map can be a basemap layer created by the user using other WebGis public js libraries, or it can be constructed using the map method encapsulated in the js library. The layer is the layer that needs to be dynamically displayed.
+This function is the constructor of the scheduler and accepts eight parameters. **Database** is the storage name of the front-end IndexDB; **url** is the background data interface; **startTime** and **endTime** are the start data key and the end data key when expecting dynamic display.（Representing a unique key in time in the library）; set color borders（**startColor** and **endColor**）; the **map** can be a basemap layer created by the user using other WebGis public js libraries, or it can be constructed using the map method encapsulated in the js library; the **layer** is the layer that needs to be dynamically displayed.
 ### function saveByServer
 #### param time number
 Used to save data through the background, time is the key of the first data to be fetched, number is the number of data read at a time, the data will be stored in the indexDB and internally maintained data.
